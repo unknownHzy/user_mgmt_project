@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>User Management</h1>
+<% if(users.length) { %>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>userName</th>
+            <th>age</th>
+            <th>country</th>
+            <th>view</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+        <%users.forEach(function(user) { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.user_name %></td>
+                <td><%= user.age %></td>
+                <td><%= user.country %></td>
+                <td><a href='user/<%= user.id %>'>view</a></td>
+                <td><a href='user/<%= user.id %>/edit'>edit</a></td>
+                <td><a href='user/<%= user.id %>?_method=DELETE'>delete</a></td>
+            </tr>
+        <% }) %>
+    </table>
+<% } %>
+</body>
+</html>

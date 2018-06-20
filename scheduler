@@ -1,0 +1,18 @@
+2017/11/13
+正式连接数据库，查询数据并展示
+完成resuful的所有操作，及数据库查询，并以Json格式展示到view上。
+ 1）如何在express中根据字段查询？
+
+抽取mysql配置文件以Object.freeze形式
+把https://github.com/mysqljs/mysql这个看完
+
+
+1.connection pool
+2.query
+3. promise chain
+
+promise
+.then
+.then
+.finlly
+.catch('could cathc the error from then ????')

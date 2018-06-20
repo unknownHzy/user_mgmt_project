@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit user</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Edit user</h1>
+<!--因为在文件目录结构中：edit.ejs在user目录下，所以在请求的时候自动加上user/。个人理解-->
+<form method="post" action="?_method=PUT">
+    <input type="hidden" name="id" value="<%= user.id %>"/><br/>
+    <input type="text" name="userName" value="<%= user.user_name %>"/><br/>
+    <input type="text" name="age" value="<%= user.age %>"/><br/>
+    <input type="text" name="country" value="<%= user.country %>"/><br/>
+    <input type="submit" name="Submit" value="Submit" />
+</form>
+<a href="/api">return</A>
+</body>
+</html>
