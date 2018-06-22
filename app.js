@@ -13,11 +13,11 @@ const Promise = require('bluebird');
 global.Promise = Promise;
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var api = require('./routes/api/index.js');
 
 var app = express();
 
-app.use(fundebug.ExpressErrorHandler);
+// app.use(fundebug.ExpressErrorHandler);
 fundebug.notify('Test', 'Hello, Fundebug');
 // override with POST having ?_method=DELETE
 /*
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // add baseurl 路由到指定的router
 app.use('/api', index);
-app.use('/api', users);//only request to /api/user/* will be sent to users router
+app.use('/api', api);//only request to /api/user/* will be sent to users router
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
