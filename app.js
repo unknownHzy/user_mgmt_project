@@ -39,7 +39,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // add baseurl 路由到指定的router
-app.use('/api', index);
+// app.use('/api', index);
+app.use(index);
 app.use('/api', api);//only request to /api/user/* will be sent to users router
 
 // catch 404 and forward to error handler

@@ -14,14 +14,6 @@ const user_controller = require('../../controllers/user_controller');
 * GET EDITED user   /api/users/:id/edit
 * */
 
-/*router.use('/users', function () {
-    console.log('users...................');
-});*/
-
-/*router.use('/user', function () {
-    console.log('user...user........user...user.....');
-});*/
-
 router.route('/:id')
     .all((req, res, next) => {
         console.log('router middleware: prehandle for all Http methods!');

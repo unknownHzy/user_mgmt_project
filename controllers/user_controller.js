@@ -1,9 +1,10 @@
-const User = require('../entities/user')
+const User = require('../entities/user');
 
 const columns = ['id', 'user_name', 'age', 'country'];
 
 function getUser(req, res) {
-	const user = new User({id: req.params.id});
+    const user = new User({id: req.params.id});
+
     return user.query(columns, user)
         .then(result => {
             console.log('RESTful: GET by Id...');
@@ -17,6 +18,7 @@ function getUser(req, res) {
 
 function updateUser(req, res) {
     const user = new User(req.body);
+
     return user.update(user)
         .then(results => {
             console.log(results);
@@ -30,6 +32,7 @@ function updateUser(req, res) {
 
 function deleteUser(req, res) {
     const user = new User({id: req.params.id});
+
     return user.remove(user)
         .then(result => {
             console.log(result);
@@ -46,6 +49,7 @@ function deleteUser(req, res) {
 
 function addUser(req, res) {
     const user = new User(req.body);
+
     return user.save(user)
         .then(result => {
             console.log(result);
@@ -81,19 +85,6 @@ function editUser(req, res) {
             console.log('RESTful: GET by Id...');
             console.log(result);
             res.render('user/edit', {user: result[0]});
-        })
-        .catch(err => {
-            console.log(err.message);
-        });
-}
-
-function updateUser(req, res) {
-    const user = new User(req.body);
-    return user.update(user)
-        .then(results => {
-            console.log(results);
-            console.log('RESTful: PUT...');
-            res.redirect('/api/users');
         })
         .catch(err => {
             console.log(err.message);
